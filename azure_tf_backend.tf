@@ -9,7 +9,6 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "random_pet" "prefix" {
-  prefix = "intech"
   length = 1
 }
 
@@ -29,16 +28,23 @@ resource "azurerm_storage_container" "container" {
   container_access_type = "private"
 }
 
-# Create the storage account access key output
+# Resource group for storing the Terraform state
+output "resource_group_name" {
+  value = azurerm_resource_group.rg.name
+}
+
+# Storage account name for Terraform state files
 output "storage_account_name" {
   value = azurerm_storage_account.storage.name
 }
 
+# Storage container for the state file
 output "container_name" {
   value = azurerm_storage_container.container.name
 }
 
+# Storage account access key
 output "storage_account_primary_access_key" {
   value     = azurerm_storage_account.storage.primary_access_key
-  sensitive = true
+  sensitive = false
 }
