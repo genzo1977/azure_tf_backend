@@ -16,7 +16,7 @@ resource "random_pet" "prefix" {
 
 # Create a storage account for Terraform state files
 resource "azurerm_storage_account" "storage" {
-  name                     = "${random_pet.prefix.id}-tfstate"
+  name                     = "${random_pet.prefix.id}tfstate"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
