@@ -1,5 +1,17 @@
 To create a remote backend for Terraform in Azure, you can use Azure Storage to store the Terraform state files and Azure Cosmos DB or Azure Blob's native locking mechanism to manage state locking. Here's how to configure it using Azure Storage.
 
+### Prerequisites:
+1. Install Terraform on the local machine
+`choco install -y terraform`
+2. Install Azure CLI
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+3. Authenticate via Azure CLI
+az login --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --verbose
+e.g.
+az login --tenant 4d4dcd44-f444-4444-b444-a44444ca4ced --verbose
+4. Restart VS Code.
+
+
 ### Steps to Initialize and Apply:
 1. Run `terraform init` to initialize the backend.
 2. Run `terraform apply` to apply the infrastructure and store the state remotely.
