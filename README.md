@@ -6,9 +6,9 @@ To create a remote backend for Terraform in Azure, you can use Azure Storage to 
 2. Install Azure CLI
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
 3. Authenticate via Azure CLI
-az login --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --verbose
+`az login --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --verbose`
 e.g.
-az login --tenant 4d4dcd44-f444-4444-b444-a44444ca4ced --verbose
+`az login --tenant 4d4dcd44-f444-4444-b444-a44444ca4ced --verbose`
 4. Restart VS Code.
 
 
