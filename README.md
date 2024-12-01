@@ -12,6 +12,7 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure
 e.g.
 
 `az login --tenant 4d4dcd44-f444-4444-b444-a44444ca4ced --verbose`
+
 5. Restart VS Code.
 6. If you get ` Error: Output refers to sensitive values`
 change 
