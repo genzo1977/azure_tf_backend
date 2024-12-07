@@ -41,4 +41,3 @@ output "storage_account_primary_access_key" {
     key                  = "terraform.tfstate"
   }
 ```
-# 1
