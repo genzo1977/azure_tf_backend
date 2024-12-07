@@ -1,7 +1,19 @@
+# made changes
 provider "azurerm" {
   features {}
 
-  subscription_id = "<YOUR_SUBSCRIPTION_ID>"
+  subscription_id = "<SUBSCRIPTION_ID>"
+}
+
+resource "random_pet" "prefix" {
+  length = 1 # Generates a single-word pet name (e.g., "maggot").
+}
+
+# Generate a random string (lowercase alphanumeric)
+resource "random_string" "suffix" {
+  length  = 4
+  upper   = false
+  special = false
 }
 
 # Create a resource group
@@ -10,13 +22,9 @@ resource "azurerm_resource_group" "rg" {
   name     = "${random_pet.prefix.id}-rg"
 }
 
-resource "random_pet" "prefix" {
-  length = 1
-}
-
-# Create a storage account for Terraform state files
+# Create a storage account with a unique name
 resource "azurerm_storage_account" "storage" {
-  name                     = "${random_pet.prefix.id}tfstate"
+  name                     = "${random_pet.prefix.id}${random_string.suffix.id}tf" # Shortened suffix.
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -48,5 +56,5 @@ output "container_name" {
 # Storage account access key
 output "storage_account_primary_access_key" {
   value     = azurerm_storage_account.storage.primary_access_key
-  sensitive = false
+  sensitive = true
 }
